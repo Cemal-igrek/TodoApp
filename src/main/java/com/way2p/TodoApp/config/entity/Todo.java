@@ -1,4 +1,4 @@
-package com.way2p.TodoApp.config;
+package com.way2p.TodoApp.config.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
