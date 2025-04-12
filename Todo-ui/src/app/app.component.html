@@ -1,0 +1,56 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Im Creating Todooo </mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="custom-field">
+        <mat-label>Todo Name</mat-label>
+        <input matInput formControlName="name"/>
+        <mat-error *ngIf="todoForm.get('name')?.invalid">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="custom-field">
+        <mat-label>Todo Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="todoForm.get('description')?.invalid">Required Field</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="todoForm.invalid">Submit</button>
+    </form>
+    
+  </mat-card>
+  <table class="table" cellspacing="0">
+    <thead>
+      <tr>
+        <th scope="col">Status</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <td class="col-md-1">
+          <mat-checkbox name="completed"></mat-checkbox>
+        </td>
+        <td class="col-md-4">Test</td>
+        <td class="col-md-4">Test</td>
+        <td class="col-md-2">
+          <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon color="accent" aria-hidden="false" aria-label="Example home Icon" fontIcon="delete"></mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <nav aria-label="Page Navigation example" class="mt-5">
+    <ul class="pagination">
+      <ng-container>
+        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+      </ng-container>
+    </ul>
+  </nav>
+</div>
