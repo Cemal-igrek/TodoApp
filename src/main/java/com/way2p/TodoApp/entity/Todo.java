@@ -1,13 +1,15 @@
-package com.way2p.TodoApp.config.entity;
+package com.way2p.TodoApp.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 
 import java.util.Date;
 
 @Entity
 @Table(name = "todo")
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Todo {
     @Id
@@ -25,4 +27,10 @@ public class Todo {
     @Column(name = "last_updated")
     private Date  lastUpdated;
 
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 }

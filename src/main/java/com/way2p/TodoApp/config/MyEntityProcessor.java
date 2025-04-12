@@ -1,6 +1,6 @@
 package com.way2p.TodoApp.config;
 
-import com.way2p.TodoApp.config.entity.Todo;
+import com.way2p.TodoApp.entity.Todo;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelProcessor;

@@ -1,4 +1,4 @@
-package com.way2p.TodoApp;
+package com.way2p.TodoApp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

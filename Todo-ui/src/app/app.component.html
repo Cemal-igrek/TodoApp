@@ -14,9 +14,9 @@
         <textarea matInput formControlName="description"></textarea>
         <mat-error *ngIf="todoForm.get('description')?.invalid">Required Field</mat-error>
       </mat-form-field>
-      <button mat-raised-button type="submit" [disabled]="todoForm.invalid">Submit</button>
+      <button mat-raised-button type="submit" [disabled]="todoForm.invalid">{{ isEditMode ? 'Update' : 'Create' }}</button>
     </form>
-    
+
   </mat-card>
   <table class="table" cellspacing="0">
     <thead>
@@ -28,22 +28,30 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr>
+      <tr *ngfor="let todo of todos">
         <td class="col-md-1">
-          <mat-checkbox name="completed"></mat-checkbox>
+          <mat-checkbox
+            name="completed"
+            [ngModel]="todo.completed"
+            (change)="patchTodoStatus(todo.id!,!todo.completed)"
+          ></mat-checkbox>
         </td>
-        <td class="col-md-4">Test</td>
-        <td class="col-md-4">Test</td>
+        <td class="col-md-4">{{todo.name}}</td>
+        <td class="col-md-4">{{todo.description}}</td>
         <td class="col-md-2">
-          <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="handleEdit(todo)">
+            <mat-icon color="primary" aria-hidden="false" aria-label="Example Home icon" fontIcon="edit" ></mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+          (click)="deleteTodo(todo.id)">
             <mat-icon color="accent" aria-hidden="false" aria-label="Example home Icon" fontIcon="delete"></mat-icon>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <nav aria-label="Page Navigation example" class="mt-5">
     <ul class="pagination">
       <ng-container>

@@ -1,6 +1,6 @@
-package com.way2p.TodoApp.config.repositories;
+package com.way2p.TodoApp.repositories;
 
-import com.way2p.TodoApp.config.entity.Todo;
+import com.way2p.TodoApp.entity.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
